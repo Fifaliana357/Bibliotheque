@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Instrument Sans", "Segoe UI", sans-serif;
+
+    --color-gray-50: #f3f6f2;
+    --color-gray-100: #e8eee8;
+    --color-gray-200: #d7e1db;
+    --color-gray-300: #c1d0c8;
+    --color-gray-400: #8c9b93;
+    --color-gray-500: #64746b;
+    --color-gray-600: #4c5f55;
+    --color-gray-700: #354a40;
+    --color-gray-800: #23392f;
+    --color-gray-900: #172820;
+
+    --color-indigo-50: #edf5ef;
+    --color-indigo-100: #dcebe0;
+    --color-indigo-200: #bed8c7;
+    --color-indigo-300: #91bda2;
+    --color-indigo-400: #63a07e;
+    --color-indigo-500: #3d8262;
+    --color-indigo-600: #28674e;
+    --color-indigo-700: #20523f;
+    --color-indigo-800: #193f33;
+    --color-indigo-900: #143329;
+}
+
+@layer base {
+    body {
+        color: #23392f;
+        font-family: var(--font-sans);
+    }
+
+    main h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.15;
+    }
+
+    :is(input, select, textarea) {
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    :is(input, select, textarea):focus {
+        border-color: #3d8262;
+        box-shadow: 0 0 0 3px rgb(61 130 98 / 14%);
+        outline: none;
+    }
+}
+
+.app-sidebar {
+    background: linear-gradient(165deg, #1c493c 0%, #12332c 72%, #102b26 100%);
+    box-shadow: 8px 0 28px rgb(20 51 41 / 9%);
+}
+
+.app-brand-mark {
+    background: #dce9a7;
+    color: #193f33;
+}
+
+.app-mobile-header {
+    background: rgb(255 255 255 / 96%);
+    box-shadow: 0 1px 0 rgb(35 57 47 / 8%);
+}
+
+.app-main {
+    background-color: #f3f6f2;
+}
+
+.bg-white.shadow {
+    border: 1px solid #e5ebe5;
+    box-shadow: 0 8px 24px rgb(35 57 47 / 5%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.3s ease-out both;
+}
+
+/* décale légèrement chaque carte pour un effet "cascade" */
+.animate-fade-in:nth-child(1) { animation-delay: 0ms; }
+.animate-fade-in:nth-child(2) { animation-delay: 40ms; }
+.animate-fade-in:nth-child(3) { animation-delay: 80ms; }
+.animate-fade-in:nth-child(4) { animation-delay: 120ms; }
+.animate-fade-in:nth-child(5) { animation-delay: 160ms; }
